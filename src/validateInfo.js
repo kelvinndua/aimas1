@@ -1,7 +1,17 @@
 export default function validateInfo(values) {
   let errors = {};
-  if (!values.username.trim()) {
-    errors.username = "Username required";
+  if (!values.firstname.trim()) {
+    errors.firstname = "firstname required";
+  }
+  if (!values.lastname.trim()) {
+    errors.lastname = "lastname required";
+  }
+  //Phone number
+  if (values.phone.length === 0) {
+    errors.phone = "phone number required";
+  }
+  if (!/^\d{10}$/.test(values.phone)) {
+    errors.phone = "check your phone number";
   }
   //Email
   if (!values.email) {
